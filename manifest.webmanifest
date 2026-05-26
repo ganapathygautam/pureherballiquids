@@ -1,0 +1,18 @@
+{
+  "name": "Pure Herbal Liquids",
+  "short_name": "Pure Herbal",
+  "description": "Traditional Tamil herbal drinks menu with WhatsApp ordering.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf0",
+  "theme_color": "#173c2a",
+  "orientation": "portrait-primary",
+  "categories": ["food", "lifestyle", "health"],
+  "icons": [
+    { "src": "./assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
