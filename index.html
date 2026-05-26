@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pure Herbal Liquids – Sacred Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#fdf3dc;
+  --bg-deep:#f5e4b8;
+  --card-bg:#fffcf2;
+  --gold:#b8860b;
+  --gold-bright:#d4a017;
+  --gold-border:#c9a84c;
+  --copper:#a0621a;
+  --brown:#4a2800;
+  --green-dark:#2d5a2e;
+  --red-fire:#cc2200;
+  --blue-ice:#1a6aaa;
+  --text-main:#2c1a00;
+  --text-sub:#5c3d10;
+  --text-muted:#8b6a30;
+}
+body{
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse at 8% 5%,  rgba(184,134,11,0.13) 0%,transparent 42%),
+    radial-gradient(ellipse at 92% 10%,rgba(45,90,46,0.10) 0%,transparent 42%),
+    radial-gradient(ellipse at 50% 95%,rgba(160,98,26,0.09) 0%,transparent 50%);
+  font-family:'Lora',Georgia,serif;
+  color:var(--text-main);
+  overflow-x:hidden;
+}
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:32px 16px 70px;}
+
+.orn{display:flex;align-items:center;gap:10px;margin:12px auto;max-width:540px;}
+.orn::before,.orn::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold-border),transparent);}
+.orn span{font-size:15px;color:var(--gold-bright);}
+
+/* LOGO */
+.logo-area{text-align:center;margin-bottom:6px;}
+.logo-svg-wrap{display:flex;justify-content:center;margin-bottom:12px;}
+.brand-name{font-family:'Cinzel',serif;font-size:clamp(22px,4.5vw,42px);font-weight:700;color:var(--brown);letter-spacing:4px;line-height:1.15;}
+.brand-bilingual{font-family:'Noto Serif Tamil',serif;font-size:17px;color:var(--green-dark);margin-top:5px;letter-spacing:1px;}
+.brand-tagline{font-family:'Lora',serif;font-style:italic;font-size:17px;color:var(--copper);margin-top:7px;letter-spacing:1px;}
+
+/* QUOTE */
+.quote-strip{background:linear-gradient(135deg,rgba(184,134,11,0.10),rgba(45,90,46,0.07));border-left:4px solid var(--gold-border);border-right:4px solid var(--gold-border);border-radius:4px;padding:14px 22px;text-align:center;margin:0 0 26px;}
+.quote-strip p{font-style:italic;font-size:13.5px;color:var(--text-sub);line-height:1.8;}
+.quote-strip cite{font-size:11px;font-style:normal;font-family:'Cinzel',serif;letter-spacing:1.5px;color:var(--text-muted);display:block;margin-top:5px;}
+
+/* SECTION BANNERS */
+.section-banner{display:flex;align-items:center;gap:14px;padding:13px 22px;border-radius:10px;margin:36px 0 16px;border:2px solid;}
+.section-banner.hot{background:linear-gradient(135deg,#fff5f2,#ffe8e0);border-color:var(--red-fire);}
+.section-banner.cool{background:linear-gradient(135deg,#eef4ff,#ddeeff);border-color:var(--blue-ice);}
+.sec-icon{font-size:30px;line-height:1;}
+.sec-text h2{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;font-weight:700;}
+.section-banner.hot .sec-text h2{color:var(--red-fire);}
+.section-banner.cool .sec-text h2{color:var(--blue-ice);}
+.sec-text p{font-family:'Noto Serif Tamil',serif;font-size:12px;margin-top:3px;opacity:.75;}
+.section-banner.hot .sec-text p{color:var(--red-fire);}
+.section-banner.cool .sec-text p{color:var(--blue-ice);}
+
+/* CARD */
+.menu-card{background:var(--card-bg);border-radius:14px;margin-bottom:26px;overflow:hidden;box-shadow:0 4px 18px rgba(100,60,0,.11);border:1px solid var(--gold-border);transition:box-shadow .25s,transform .25s;}
+.menu-card:hover{box-shadow:0 10px 34px rgba(100,60,0,.18);transform:translateY(-2px);}
+.menu-card.hot-card{border-top:5px solid var(--red-fire);}
+.menu-card.cool-card{border-top:5px solid var(--blue-ice);}
+
+.type-ribbon{display:flex;align-items:center;gap:7px;padding:5px 16px;font-size:10.5px;font-family:'Cinzel',serif;letter-spacing:2px;font-weight:700;}
+.hot-card .type-ribbon{background:#fff0ec;color:var(--red-fire);}
+.cool-card .type-ribbon{background:#eef4ff;color:var(--blue-ice);}
+
+/* TOP: Parts 1-3 */
+.card-top{display:grid;grid-template-columns:210px 1fr 140px;align-items:stretch;border-bottom:1.5px solid rgba(184,134,11,.2);}
+.card-img{width:210px;height:190px;overflow:hidden;position:relative;flex-shrink:0;}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.menu-card:hover .card-img img{transform:scale(1.06);}
+.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(255,252,242,.55) 100%);pointer-events:none;}
+.card-name-col{padding:20px 18px 16px;display:flex;flex-direction:column;justify-content:center;gap:7px;}
+.drink-name{font-family:'Cinzel',serif;font-size:clamp(19px,2.8vw,28px);font-weight:700;color:var(--brown);line-height:1.2;}
+.drink-bilingual{font-family:'Noto Serif Tamil',serif;font-size:16px;color:var(--green-dark);font-weight:600;}
+.drink-tagline{font-style:italic;font-size:13px;color:var(--text-muted);line-height:1.6;margin-top:2px;}
+.card-price-col{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:linear-gradient(160deg,#fef2d4,#f0d890);border-left:1px solid rgba(184,134,11,.3);}
+.price-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--text-muted);margin-bottom:5px;text-transform:uppercase;}
+.price-amount{font-family:'Cinzel',serif;font-size:clamp(44px,7vw,68px);font-weight:700;color:var(--brown);line-height:1;}
+.price-rs{font-size:.48em;vertical-align:super;font-weight:400;}
+.price-note{font-size:9px;color:var(--text-muted);margin-top:4px;font-style:italic;}
+
+/* BODY: Parts 4-6 */
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr;}
+.info-col{padding:15px 16px 16px;border-right:1px solid rgba(184,134,11,.15);}
+.info-col:last-child{border-right:none;}
+.col-header{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.col-header::after{content:'';flex:1;height:1px;}
+.lbl-icon{font-size:13px;}
+
+/* Gen-Z */
+.col-genZ .col-header{color:#8b1a6a;}
+.col-genZ .col-header::after{background:rgba(139,26,106,.2);}
+.ing-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.ing-tag{font-size:11px;padding:3px 9px;border-radius:20px;font-family:'Lora',serif;font-weight:600;background:#f3e0f7;color:#6a1060;border:1px solid #d0a0d8;}
+.genZ-vibe{font-size:11.5px;color:#7a1060;margin-top:9px;font-style:italic;line-height:1.55;}
+
+/* Millennial */
+.col-mill .col-header{color:var(--green-dark);}
+.col-mill .col-header::after{background:rgba(45,90,46,.2);}
+.benefit-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.benefit-list li{font-size:12px;color:var(--text-sub);display:flex;align-items:flex-start;gap:6px;line-height:1.5;}
+.benefit-list li::before{content:'✓';color:var(--green-dark);font-weight:700;flex-shrink:0;margin-top:1px;}
+.nut-row{margin-top:9px;padding-top:7px;border-top:1px solid rgba(45,90,46,.15);display:flex;flex-wrap:wrap;gap:4px;}
+.nut-chip{font-size:9.5px;padding:2px 7px;border-radius:4px;background:rgba(45,90,46,.08);border:1px solid rgba(45,90,46,.22);color:var(--green-dark);font-family:'Cinzel',serif;letter-spacing:.3px;}
+
+/* Boomer */
+.col-boom .col-header{color:var(--copper);}
+.col-boom .col-header::after{background:rgba(160,98,26,.2);}
+.history-text{font-size:12px;color:var(--text-sub);line-height:1.85;}
+
+/* ADD-ONS */
+.addons-box{background:var(--card-bg);border:1.5px solid var(--gold-border);border-radius:12px;padding:22px 24px;margin-top:32px;}
+.addons-box h3{font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;color:var(--brown);margin-bottom:6px;text-align:center;}
+.addons-box .add-sub{font-size:11.5px;font-style:italic;color:var(--text-muted);text-align:center;margin-bottom:18px;}
+.addons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;}
+.addon-item{display:flex;align-items:center;gap:11px;padding:10px 13px;border:1.5px solid var(--gold-border);border-radius:7px;background:#fffbf0;cursor:pointer;user-select:none;transition:background .18s,border-color .18s,box-shadow .18s;}
+.addon-item:hover{background:#fdf0d4;box-shadow:0 2px 8px rgba(184,134,11,.15);}
+.addon-item.ticked{background:#fef6d8;border-color:var(--gold-bright);box-shadow:0 2px 8px rgba(212,160,23,.2);}
+.addon-box{width:22px;height:22px;border:2px solid var(--gold-border);border-radius:3px;flex-shrink:0;background:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s;}
+.addon-item.ticked .addon-box{background:var(--gold-bright);border-color:var(--gold);}
+.tick-mark{font-size:13px;color:#fff;display:none;line-height:1;font-weight:700;}
+.addon-item.ticked .tick-mark{display:block;}
+.addon-label{font-size:13px;color:var(--text-sub);font-family:'Lora',serif;flex:1;line-height:1.35;}
+.addon-price{font-family:'Cinzel',serif;font-size:13.5px;font-weight:700;color:var(--brown);}
+
+/* ALLERGEN & FOOTER */
+.allergen{margin-top:22px;padding:13px 18px;background:#fff5e8;border:1px solid rgba(200,100,30,.3);border-radius:8px;font-size:12.5px;font-style:italic;color:#8b4a10;text-align:center;line-height:1.7;}
+.menu-footer{text-align:center;margin-top:46px;padding-top:22px;border-top:1.5px solid var(--gold-border);}
+.footer-brand{font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:var(--brown);margin-bottom:4px;}
+.footer-sub{font-size:12px;font-style:italic;color:var(--text-muted);}
+
+/* MOBILE */
+@media(max-width:700px){
+  .card-top{grid-template-columns:120px 1fr;}
+  .card-price-col{display:none;}
+  .price-mobile{display:flex!important;align-items:center;gap:8px;padding:8px 16px;background:linear-gradient(90deg,#fef2d4,#f0d890);border-bottom:1px solid rgba(184,134,11,.2);}
+  .price-mobile .price-amount{font-size:36px;}
+  .price-mobile .price-note{font-size:11px;color:var(--text-muted);font-style:italic;margin-left:2px;align-self:flex-end;padding-bottom:4px;}
+  .card-body{grid-template-columns:1fr;}
+  .info-col{border-right:none;border-bottom:1px solid rgba(184,134,11,.15);}
+  .info-col:last-child{border-bottom:none;}
+  .card-img{height:125px;}
+  .drink-name{font-size:18px;}
+}
+.price-mobile{display:none;}
+
+/* WHATSAPP ORDER BUTTON */
+.wa-btn-wrap{text-align:center;margin:40px 0 20px;padding:0 16px;}
+.wa-order-btn{
+  display:inline-flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,#25d366,#128c4a);
+  color:#fff;text-decoration:none;
+  font-family:'Cinzel',serif;font-size:clamp(16px,2.5vw,22px);
+  font-weight:700;letter-spacing:1.5px;
+  padding:18px 42px;border-radius:60px;
+  box-shadow:0 6px 30px rgba(37,211,102,0.45),0 2px 8px rgba(0,0,0,0.15);
+  transition:transform .2s,box-shadow .2s;
+  border:3px solid rgba(255,255,255,0.25);
+}
+.wa-order-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 40px rgba(37,211,102,0.55),0 4px 12px rgba(0,0,0,0.2);
+}
+.wa-order-btn:active{transform:translateY(0) scale(0.99);}
+.wa-icon{width:30px;height:30px;fill:#fff;flex-shrink:0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ════ LOGO ════ -->
+<div class="logo-area">
+  <div class="logo-svg-wrap">
+    <svg width="340" height="210" viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Pure Herbal Liquids logo — Plant, Body and Soul">
+      <defs>
+        <radialGradient id="bgC" cx="50%" cy="55%" r="50%">
+          <stop offset="0%" stop-color="#fdf3dc"/>
+          <stop offset="100%" stop-color="#f0d890"/>
+        </radialGradient>
+        <linearGradient id="rG" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#6b3a0a"/>
+          <stop offset="100%" stop-color="#a06828"/>
+        </linearGradient>
+        <linearGradient id="lG" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#2d5a2e"/>
+          <stop offset="100%" stop-color="#6baa72"/>
+        </linearGradient>
+        <linearGradient id="sG" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#e8a84c"/>
+          <stop offset="100%" stop-color="#fff5d0"/>
+        </linearGradient>
+        <linearGradient id="bG" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#c9873a"/>
+          <stop offset="100%" stop-color="#7a4a10"/>
+        </linearGradient>
+      </defs>
+      <circle cx="170" cy="108" r="92" fill="url(#bgC)" stroke="#c9a84c" stroke-width="1.8"/>
+      <circle cx="170" cy="108" r="87" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.8"/>
+
+      <!-- PLANT (left) -->
+      <path d="M88,172 Q80,183 72,188" fill="none" stroke="url(#rG)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M88,172 Q84,185 80,192" fill="none" stroke="url(#rG)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M88,172 Q90,182 88,190" fill="none" stroke="url(#rG)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M88,172 Q97,182 101,189" fill="none" stroke="url(#rG)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M79,185 Q73,188 70,185" fill="none" stroke="#9a5a18" stroke-width="1" stroke-linecap="round"/>
+      <path d="M83,188 Q78,192 75,190" fill="none" stroke="#9a5a18" stroke-width="1" stroke-linecap="round"/>
+      <path d="M88,172 Q86,152 88,130" fill="none" stroke="url(#rG)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M88,156 Q74,142 64,137 Q73,128 88,143 Z" fill="url(#lG)" opacity=".9"/>
+      <path d="M88,148 Q102,134 112,130 Q104,122 88,136 Z" fill="url(#lG)" opacity=".85"/>
+      <path d="M88,137 Q76,124 70,117 Q79,111 90,124 Z" fill="url(#lG)" opacity=".8"/>
+      <path d="M88,156 Q77,143 66,138" fill="none" stroke="#2d5a2e" stroke-width=".6" opacity=".55"/>
+      <path d="M88,148 Q100,136 110,132" fill="none" stroke="#2d5a2e" stroke-width=".6" opacity=".55"/>
+      <ellipse cx="88" cy="124" rx="5.5" ry="7.5" fill="#4a9a50" opacity=".9"/>
+      <ellipse cx="88" cy="120" rx="3" ry="4" fill="#7acc80" opacity=".8"/>
+      <text x="74" y="200" font-family="Cinzel,serif" font-size="9" fill="#2d5a2e" text-anchor="middle" letter-spacing="1" opacity=".85">PLANT</text>
+
+      <!-- BODY (centre) -->
+      <circle cx="170" cy="82" r="13" fill="url(#bG)" opacity=".88"/>
+      <rect x="165.5" y="94" width="9" height="7" rx="3" fill="url(#bG)" opacity=".82"/>
+      <path d="M155,101 Q150,118 152,137 Q159,143 170,143 Q181,143 188,137 Q190,118 185,101 Q178,97 170,97 Q162,97 155,101Z" fill="url(#bG)" opacity=".82"/>
+      <path d="M155,103 Q143,113 140,124 Q138,131 141,134" fill="none" stroke="url(#bG)" stroke-width="6" stroke-linecap="round" opacity=".76"/>
+      <path d="M185,103 Q197,113 200,124 Q202,131 199,134" fill="none" stroke="url(#bG)" stroke-width="6" stroke-linecap="round" opacity=".76"/>
+      <path d="M162,143 Q158,159 158,172 Q158,177 163,177" fill="none" stroke="url(#bG)" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+      <path d="M178,143 Q182,159 182,172 Q182,177 177,177" fill="none" stroke="url(#bG)" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+      <circle cx="170" cy="108" r="3" fill="#e8a84c" opacity=".9"/>
+      <circle cx="170" cy="119" r="2.4" fill="#e8a84c" opacity=".75"/>
+      <circle cx="170" cy="129" r="1.9" fill="#e8a84c" opacity=".6"/>
+      <text x="170" y="190" font-family="Cinzel,serif" font-size="9" fill="#7a4a10" text-anchor="middle" letter-spacing="1" opacity=".85">BODY</text>
+
+      <!-- SOUL / FLAME (right) -->
+      <ellipse cx="252" cy="170" rx="14" ry="4.5" fill="#b87333" opacity=".9"/>
+      <path d="M240,170 Q242,157 246,153 Q252,149 258,153 Q262,157 264,170Z" fill="#c9873a" opacity=".88"/>
+      <path d="M248,153 Q252,150 256,153" fill="none" stroke="#d4a017" stroke-width="1"/>
+      <path d="M252,149 Q250,144 252,140" fill="none" stroke="#7a4a10" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M252,140 Q244,126 247,114 Q249,104 252,98 Q255,104 257,114 Q260,126 252,140Z" fill="url(#sG)" opacity=".95"/>
+      <path d="M252,137 Q247,126 249,116 Q250,109 252,105 Q254,109 255,116 Q257,126 252,137Z" fill="#ffe080" opacity=".92"/>
+      <path d="M251.5,132 Q251,124 251.5,116 Q252,111 252,116 Q252,124 251.5,132Z" fill="#fff8d0" opacity=".75"/>
+      <line x1="252" y1="94" x2="252" y2="88" stroke="#e8a84c" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+      <line x1="259" y1="98" x2="265" y2="94" stroke="#e8a84c" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      <line x1="245" y1="98" x2="239" y2="94" stroke="#e8a84c" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      <circle cx="252" cy="115" r="18" fill="#e8a84c" opacity=".07"/>
+      <text x="252" y="183" font-family="Cinzel,serif" font-size="9" fill="#b8860b" text-anchor="middle" letter-spacing="1" opacity=".85">SOUL</text>
+
+      <!-- connectors -->
+      <path d="M98,190 Q130,198 160,190" fill="none" stroke="rgba(184,134,11,.28)" stroke-width="1" stroke-dasharray="3,3"/>
+      <path d="M180,190 Q212,195 242,183" fill="none" stroke="rgba(184,134,11,.28)" stroke-width="1" stroke-dasharray="3,3"/>
+      <g stroke="#c9a84c" stroke-width=".8" opacity=".35">
+        <line x1="170" y1="16" x2="170" y2="24"/>
+        <line x1="170" y1="192" x2="170" y2="200"/>
+        <line x1="78"  y1="108" x2="86"  y2="108"/>
+        <line x1="254" y1="108" x2="262" y2="108"/>
+        <line x1="105" y1="43"  x2="111" y2="49"/>
+        <line x1="229" y1="163" x2="223" y2="169"/>
+        <line x1="229" y1="43"  x2="223" y2="49"/>
+        <line x1="105" y1="163" x2="111" y2="169"/>
+      </g>
+    </svg>
+  </div>
+  <div class="brand-name">PURE HERBAL LIQUIDS</div>
+  <div class="brand-bilingual">தூய மூலிகை பானங்கள்</div>
+  <div class="orn"><span>✦</span></div>
+  <div class="brand-tagline">Experience Herbal Wellness</div>
+</div>
+
+<!-- ════ GOPURAM + PLANTS BANNER ════ -->
+<div style="display:flex;justify-content:center;margin:10px 0 24px;">
+<svg width="100%" viewBox="0 0 900 180" preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Gopuram temple tower flanked by medicinal plants and roots">
+  <defs>
+    <linearGradient id="gopG" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8b6010"/></linearGradient>
+    <linearGradient id="skyG" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fef9e8"/><stop offset="100%" stop-color="#faefc4"/></linearGradient>
+    <linearGradient id="rG2" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#6b3a0a"/><stop offset="100%" stop-color="#a06828"/></linearGradient>
+    <linearGradient id="lG2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2d5a2e"/><stop offset="100%" stop-color="#6baa72"/></linearGradient>
+  </defs>
+  <rect width="900" height="180" fill="url(#skyG)" rx="12"/>
+  <rect width="900" height="180" fill="none" stroke="rgba(201,168,76,.35)" stroke-width="1" rx="12"/>
+  <circle cx="450" cy="0" r="100" fill="rgba(255,200,80,0.10)"/>
+
+  <!-- GOPURAM -->
+  <ellipse cx="450" cy="13" rx="8" ry="10" fill="url(#gopG)"/>
+  <line x1="450" y1="3" x2="450" y2="0" stroke="#c9a020" stroke-width="2"/>
+  <ellipse cx="450" cy="0" rx="6" ry="3" fill="#d4a840"/>
+  <polygon points="424,22 476,22 483,36 417,36" fill="#c9a030" opacity=".9"/>
+  <rect x="435" y="24" width="10" height="9" rx="1" fill="rgba(250,240,196,.6)"/>
+  <rect x="455" y="24" width="10" height="9" rx="1" fill="rgba(250,240,196,.6)"/>
+  <line x1="417" y1="36" x2="483" y2="36" stroke="#a07820" stroke-width=".8"/>
+  <polygon points="409,36 491,36 500,52 400,52" fill="#c09428" opacity=".9"/>
+  <rect x="418" y="38" width="12" height="10" rx="1" fill="rgba(250,240,196,.55)"/>
+  <rect x="438" y="38" width="12" height="10" rx="1" fill="rgba(250,240,196,.55)"/>
+  <rect x="459" y="38" width="12" height="10" rx="1" fill="rgba(250,240,196,.55)"/>
+  <rect x="478" y="38" width="12" height="10" rx="1" fill="rgba(250,240,196,.55)"/>
+  <line x1="400" y1="52" x2="500" y2="52" stroke="#a07820" stroke-width=".8"/>
+  <polygon points="390,52 510,52 521,72 379,72" fill="#b08020" opacity=".9"/>
+  <rect x="399" y="54" width="14" height="12" rx="1" fill="rgba(250,240,196,.5)"/>
+  <rect x="422" y="54" width="14" height="12" rx="1" fill="rgba(250,240,196,.5)"/>
+  <rect x="443" y="54" width="14" height="12" rx="1" fill="rgba(250,240,196,.5)"/>
+  <rect x="465" y="54" width="14" height="12" rx="1" fill="rgba(250,240,196,.5)"/>
+  <rect x="487" y="54" width="14" height="12" rx="1" fill="rgba(250,240,196,.5)"/>
+  <line x1="379" y1="72" x2="521" y2="72" stroke="#a07820" stroke-width=".8"/>
+  <polygon points="368,72 532,72 546,97 354,97" fill="#a07018" opacity=".9"/>
+  <rect x="378" y="75" width="16" height="14" rx="1" fill="rgba(250,240,196,.45)"/>
+  <rect x="404" y="75" width="16" height="14" rx="1" fill="rgba(250,240,196,.45)"/>
+  <rect x="430" y="75" width="16" height="14" rx="1" fill="rgba(250,240,196,.45)"/>
+  <rect x="454" y="75" width="16" height="14" rx="1" fill="rgba(250,240,196,.45)"/>
+  <rect x="480" y="75" width="16" height="14" rx="1" fill="rgba(250,240,196,.45)"/>
+  <rect x="506" y="75" width="16" height="14" rx="1" fill="rgba(250,240,196,.45)"/>
+  <line x1="354" y1="97" x2="546" y2="97" stroke="#906010" stroke-width=".8"/>
+  <rect x="342" y="97" width="216" height="60" fill="#9a6418" opacity=".95"/>
+  <line x1="342" y1="97" x2="558" y2="97" stroke="#c9a030" stroke-width="1.2"/>
+  <rect x="346" y="97" width="22" height="60" fill="#7a4e10" opacity=".85"/>
+  <line x1="346" y1="113" x2="368" y2="113" stroke="#c9a030" stroke-width=".6"/>
+  <line x1="346" y1="127" x2="368" y2="127" stroke="#c9a030" stroke-width=".6"/>
+  <line x1="346" y1="141" x2="368" y2="141" stroke="#c9a030" stroke-width=".6"/>
+  <rect x="532" y="97" width="22" height="60" fill="#7a4e10" opacity=".85"/>
+  <line x1="532" y1="113" x2="554" y2="113" stroke="#c9a030" stroke-width=".6"/>
+  <line x1="532" y1="127" x2="554" y2="127" stroke="#c9a030" stroke-width=".6"/>
+  <line x1="532" y1="141" x2="554" y2="141" stroke="#c9a030" stroke-width=".6"/>
+  <path d="M398,157 L398,120 Q450,106 502,120 L502,157 Z" fill="#6a3e0c" opacity=".92"/>
+  <path d="M398,120 Q450,107 502,120" fill="none" stroke="#c9a030" stroke-width="1.2"/>
+  <rect x="376" y="103" width="14" height="18" rx="2" fill="#8a5210" opacity=".6"/>
+  <ellipse cx="383" cy="103" rx="7" ry="4" fill="#8a5210" opacity=".5"/>
+  <rect x="512" y="103" width="14" height="18" rx="2" fill="#8a5210" opacity=".6"/>
+  <ellipse cx="519" cy="103" rx="7" ry="4" fill="#8a5210" opacity=".5"/>
+  <!-- oil lamp -->
+  <ellipse cx="450" cy="157" rx="6" ry="2.5" fill="#c9873a" opacity=".8"/>
+  <path d="M446,157 Q450,150 454,157" fill="#d4a017" opacity=".9"/>
+  <ellipse cx="450" cy="149" rx="2.5" ry="3.5" fill="#ff8c00" opacity=".88"/>
+  <ellipse cx="450" cy="148" rx="1.4" ry="2.2" fill="#ffe080" opacity=".9"/>
+  <circle cx="450" cy="150" r="9" fill="#e8a84c" opacity=".09"/>
+  <rect x="330" y="157" width="240" height="7" fill="#8a5e14" opacity=".85"/>
+  <rect x="318" y="164" width="264" height="7" fill="#7a5010" opacity=".8"/>
+  <rect x="305" y="171" width="290" height="9" fill="#6a4008" opacity=".75"/>
+
+  <!-- PLANTS LEFT -->
+  <path d="M215,171 Q206,178 198,183" fill="none" stroke="url(#rG2)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M215,171 Q210,181 206,187" fill="none" stroke="url(#rG2)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M215,171 Q218,180 216,186" fill="none" stroke="url(#rG2)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M215,171 Q222,179 225,185" fill="none" stroke="url(#rG2)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M203,179 Q197,182 194,179" fill="none" stroke="#9a5a18" stroke-width=".9" stroke-linecap="round"/>
+  <path d="M207,183 Q202,186 199,184" fill="none" stroke="#9a5a18" stroke-width=".9" stroke-linecap="round"/>
+  <path d="M215,171 Q213,148 215,120" fill="none" stroke="url(#rG2)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M215,155 Q198,140 186,135 Q197,124 215,141 Z" fill="url(#lG2)" opacity=".88"/>
+  <path d="M215,145 Q232,130 244,126 Q234,116 215,131 Z" fill="url(#lG2)" opacity=".83"/>
+  <path d="M215,133 Q200,118 192,111 Q202,104 215,118 Z" fill="url(#lG2)" opacity=".78"/>
+  <path d="M215,155 Q200,142 187,136" fill="none" stroke="#2d5a2e" stroke-width=".6" opacity=".5"/>
+  <path d="M215,145 Q230,132 242,128" fill="none" stroke="#2d5a2e" stroke-width=".6" opacity=".5"/>
+  <ellipse cx="215" cy="113" rx="5" ry="7" fill="#4a9a50" opacity=".88"/>
+  <path d="M160,171 Q155,178 150,183" fill="none" stroke="url(#rG2)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M160,171 Q162,180 160,186" fill="none" stroke="url(#rG2)" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M160,171 Q160,152 160,132" fill="none" stroke="url(#rG2)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M160,155 Q148,144 140,140 Q149,132 160,144 Z" fill="url(#lG2)" opacity=".8"/>
+  <path d="M160,147 Q171,136 179,133 Q172,125 160,136 Z" fill="url(#lG2)" opacity=".75"/>
+  <ellipse cx="160" cy="126" rx="4" ry="6" fill="#5aaa60" opacity=".85"/>
+  <!-- ginger root L -->
+  <ellipse cx="256" cy="172" rx="22" ry="8" fill="#a07028" opacity=".45" transform="rotate(-8,256,172)"/>
+  <ellipse cx="248" cy="168" rx="14" ry="5" fill="#b8841e" opacity=".5" transform="rotate(-12,248,168)"/>
+  <ellipse cx="265" cy="166" rx="10" ry="4" fill="#c09028" opacity=".5" transform="rotate(5,265,166)"/>
+  <path d="M244,163 Q238,158 232,156" fill="none" stroke="#8a5a10" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M256,164 Q252,158 248,155" fill="none" stroke="#8a5a10" stroke-width="1" stroke-linecap="round"/>
+  <path d="M262,162 Q266,156 270,154" fill="none" stroke="#8a5a10" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- PLANTS RIGHT -->
+  <path d="M685,171 Q694,178 702,183" fill="none" stroke="url(#rG2)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M685,171 Q690,181 694,187" fill="none" stroke="url(#rG2)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M685,171 Q682,180 684,186" fill="none" stroke="url(#rG2)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M685,171 Q678,179 675,185" fill="none" stroke="url(#rG2)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M697,179 Q703,182 706,179" fill="none" stroke="#9a5a18" stroke-width=".9" stroke-linecap="round"/>
+  <path d="M685,171 Q687,148 685,120" fill="none" stroke="url(#rG2)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M685,155 Q702,140 714,135 Q703,124 685,141 Z" fill="url(#lG2)" opacity=".88"/>
+  <path d="M685,145 Q668,130 656,126 Q666,116 685,131 Z" fill="url(#lG2)" opacity=".83"/>
+  <path d="M685,133 Q700,118 708,111 Q698,104 685,118 Z" fill="url(#lG2)" opacity=".78"/>
+  <path d="M685,155 Q700,142 713,136" fill="none" stroke="#2d5a2e" stroke-width=".6" opacity=".5"/>
+  <path d="M685,145 Q670,132 658,128" fill="none" stroke="#2d5a2e" stroke-width=".6" opacity=".5"/>
+  <ellipse cx="685" cy="113" rx="5" ry="7" fill="#4a9a50" opacity=".88"/>
+  <path d="M740,171 Q745,178 750,183" fill="none" stroke="url(#rG2)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M740,171 Q738,180 740,186" fill="none" stroke="url(#rG2)" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M740,171 Q740,152 740,132" fill="none" stroke="url(#rG2)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M740,155 Q752,144 760,140 Q751,132 740,144 Z" fill="url(#lG2)" opacity=".8"/>
+  <path d="M740,147 Q729,136 721,133 Q728,125 740,136 Z" fill="url(#lG2)" opacity=".75"/>
+  <ellipse cx="740" cy="126" rx="4" ry="6" fill="#5aaa60" opacity=".85"/>
+  <!-- ginger root R -->
+  <ellipse cx="644" cy="172" rx="22" ry="8" fill="#a07028" opacity=".45" transform="rotate(8,644,172)"/>
+  <ellipse cx="652" cy="168" rx="14" ry="5" fill="#b8841e" opacity=".5" transform="rotate(12,652,168)"/>
+  <ellipse cx="635" cy="166" rx="10" ry="4" fill="#c09028" opacity=".5" transform="rotate(-5,635,166)"/>
+  <path d="M656,163 Q662,158 668,156" fill="none" stroke="#8a5a10" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M644,164 Q648,158 652,155" fill="none" stroke="#8a5a10" stroke-width="1" stroke-linecap="round"/>
+  <path d="M638,162 Q634,156 630,154" fill="none" stroke="#8a5a10" stroke-width="1" stroke-linecap="round"/>
+  <rect x="0" y="174" width="900" height="6" fill="#4a7a2e" opacity=".25"/>
+</svg>
+</div>
+
+<!-- ════ QUOTE ════ -->
+<div class="quote-strip">
+  <p>"Time was when I despised the body; but then I saw the Divine within. And then I realized the body is the temple of the Lord, and so I began nurturing it with infinite care."</p>
+  <cite>— Thirumoolar, Thirumanthiram (Verse 725) (7th Century CE)</cite>
+</div>
+
+<!-- ════ HOT SECTION ════ -->
+<div class="section-banner hot">
+  <span class="sec-icon">🔥</span>
+  <div class="sec-text"><h2>HOT HEALING DRINKS</h2><p>வெப்பமான மூலிகை மருந்துகள்</p></div>
+</div>
+
+<!-- ── CARD 1 ── -->
+<div class="menu-card hot-card">
+  <div class="type-ribbon">🔥 HOT DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://www.water.com/_next/image/?url=https%3A%2F%2Fa-us.storyblok.com%2Ff%2F1021132%2F1200x777%2F4fbc86c4f3%2Fgettyimages-861180142.webp&w=3840&q=75" alt="Ginger water" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Inji Thanneer</div>
+      <div class="drink-bilingual">இஞ்சி தண்ணீர் · Ginger Water</div>
+      <div class="drink-tagline">The Universal Medicine · Ancient Digestive Tonic</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Fresh Ginger</span><span class="ing-tag">Palm Jaggery</span><span class="ing-tag">Holy Basil</span><span class="ing-tag">Black Pepper</span><span class="ing-tag">Water</span></div>
+      <div class="genZ-vibe">No cap — this drink literally slaps for your gut 👑. Ginger is the anti-nausea king. Jaggery instead of white sugar = actually smart. This ain't your supermarket ginger ale, bestie. Main character herb, fr.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Calms nausea and settles the stomach instantly</li>
+        <li>Reduces systemic inflammation — joints, gut &amp; skin</li>
+        <li>Boosts immunity with powerful antioxidants</li>
+        <li>Warms the body — perfect post-rain or post-workout</li>
+        <li>Gingerol shown to lower blood sugar naturally</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Gingerol</strong></span><span class="nut-chip"><strong>Shogaol</strong></span><span class="nut-chip"><strong>Vit B6</strong></span><span class="nut-chip"><strong>Vit C</strong></span><span class="nut-chip"><strong>Magnesium</strong></span><span class="nut-chip"><strong>Potassium</strong></span><span class="nut-chip"><strong>Zinc</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Known as <em>Vishwa Bheshaja</em> — "the universal medicine" — in herbal compendiums from the 2nd century CE. Temple kitchens at Brihadeeswarar and Srirangam served this warm brew to pilgrims after long fasting journeys for over a thousand years. British colonial records from 1872 confirm it was the most consumed street drink in Madurai bazaars. Passed down through generations as the first remedy for cold, indigestion, and fatigue.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD 3 ── -->
+<div class="menu-card hot-card">
+  <div class="type-ribbon">🔥 HOT DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://contenthandler.azureedge.net/recp/314/2000/0/753.jpg" alt="Golden milk turmeric" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Manjal Paal</div>
+      <div class="drink-bilingual">மஞ்சள் பால் · Golden Milk</div>
+      <div class="drink-tagline">Liquid Gold · Ancient Anti-Inflammatory</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Raw Turmeric</span><span class="ing-tag">Cow's Milk</span><span class="ing-tag">Black Pepper</span><span class="ing-tag">Wild Honey</span><span class="ing-tag">Cardamom</span></div>
+      <div class="genZ-vibe">So this is literally what fancy café "Golden Milk" lattes try to be ☕. Except ours is the original — raw turmeric + pepper hack that 2,500 years of wisdom discovered first (pepper makes curcumin 2,000× more effective, no cap).</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Curcumin + piperine = 2,000× better absorption</li>
+        <li>Heals gut lining — reduces IBS &amp; bloating</li>
+        <li>Joint pain relief — natural COX-2 enzyme inhibitor</li>
+        <li>Milk's tryptophan converts to melatonin → deep sleep</li>
+        <li>One of nature's most researched anti-cancer compounds</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Curcumin</strong></span><span class="nut-chip"><strong>Piperine</strong></span><span class="nut-chip"><strong>Vit D</strong></span><span class="nut-chip"><strong>Vit B12</strong></span><span class="nut-chip"><strong>Calcium</strong></span><span class="nut-chip"><strong>Manganese</strong></span><span class="nut-chip"><strong>Tryptophan</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">The Charaka Samhita (300 BCE) prescribes turmeric milk — "Haridra Dugdha" — for joint disease and internal wounds. In every home, this was given to children after injury, to women post-childbirth, and to elders at sunset as a nightly blessing. Arab traders of the 1st century CE noted "the gold drink of the ports" in their records. "Golden Milk" became a global café trend after 2015 — yet every grandmother had been making it for 3,000 years before that.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── OMAM THANNEER ── -->
+<div class="menu-card hot-card">
+  <div class="type-ribbon">🔥 HOT DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1STUrW.img?w=768&h=432&m=6" alt="Omam ajwain water" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Omam Thanneer</div>
+      <div class="drink-bilingual">ஓமம் தண்ணீர் · Ajwain Water</div>
+      <div class="drink-tagline">The Gut Guardian · Digestive Reset Water</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Carom Seeds (Omam)</span><span class="ing-tag">Water</span><span class="ing-tag">Rock Salt</span><span class="ing-tag">Lemon</span></div>
+      <div class="genZ-vibe">Bloated af after that heavy meal? This is literally your gut's SOS responder 🆘. Carom seeds in water = instant gas-out, no drama. Ain't your grandmother's remedy — it's just science wearing a kurta. Reset mode activated fr.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Instant relief from gas, bloating &amp; indigestion</li>
+        <li>Thymol relaxes intestinal muscles — stops colic pain</li>
+        <li>Natural bronchodilator — opens airways for easy breathing</li>
+        <li>Antifungal &amp; antibacterial — thymol kills pathogens</li>
+        <li>Stimulates digestive enzymes for faster breakdown</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Thymol</strong></span><span class="nut-chip"><strong>Carvacrol</strong></span><span class="nut-chip"><strong>Niacin B3</strong></span><span class="nut-chip"><strong>Riboflavin B2</strong></span><span class="nut-chip"><strong>Calcium</strong></span><span class="nut-chip"><strong>Iron</strong></span><span class="nut-chip"><strong>Fibre</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Carom seeds (Omam / Ajwain) have been steeped in water as a morning drink for thousands of years across South India. Ancient herbal compendiums from the 3rd–5th century CE list it among the 32 essential herbs of every household. Mothers across Tirunelveli and Thoothukudi prepared Omam Thanneer for newborn colic — a tradition living in villages to this day. Mughal court records (1600s) document Tamil traders selling it to royal physicians in Delhi as a prized digestive tonic from the South.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD 5 ── -->
+<div class="menu-card hot-card">
+  <div class="type-ribbon">🔥 HOT DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://i.ytimg.com/vi/0k-Olj7zk3o/maxresdefault.jpg" alt="Panamkalkandu palm candy milk" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Panamkalkandu Paal</div>
+      <div class="drink-bilingual">பனங்கல்கண்டு பால் · Palm Candy Milk</div>
+      <div class="drink-tagline">The Sleep Elixir · Nature's Bedtime Ritual</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Cow's Milk</span><span class="ing-tag">Palm Candy</span><span class="ing-tag">Green Cardamom</span><span class="ing-tag">Saffron</span></div>
+      <div class="genZ-vibe">It's giving warm hug in a clay cup ☁️. Palm candy is NOT white sugar — it's actually cooling for your body. Cardamom memory boost included at zero extra cost 🧠. Drink this at night and genuinely sleep like a baby, bestie.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Soothes inflamed throat — works better than lozenges</li>
+        <li>Tryptophan → serotonin &amp; melatonin → deeper sleep</li>
+        <li>Palm candy is body-cooling — unlike refined sugar</li>
+        <li>Calcium &amp; phosphorus for strong bones every sip</li>
+        <li>Cardamom's cineole shown to improve memory</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Calcium</strong></span><span class="nut-chip"><strong>Phosphorus</strong></span><span class="nut-chip"><strong>Vit D</strong></span><span class="nut-chip"><strong>Vit B12</strong></span><span class="nut-chip"><strong>Tryptophan</strong></span><span class="nut-chip"><strong>1,8-Cineole</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Palm Candy Milk appears in the Sangam-era Ettuthokai poetry anthologies (300 BCE–300 CE) as the customary offering to guests and revered elders. The Thanjavur Maratha palace kitchens of the 18th century served it nightly to the royal household. The Palmyra palm — the noble source of this crystal candy — is considered sacred in ancient literature. Every part of this tree is used in traditional medicine, and the crystallised palm sap is classified as a body-cooling, liver-nourishing substance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD 8 ── -->
+<div class="menu-card hot-card">
+  <div class="type-ribbon">🔥 HOT DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgEt0WwwL-rCzRwdxVmgGcAZpuMKquWrSl-a-kJ6MQ9e9GoYMcjnXUUISFFMq55TEhKdGq5BCNYwtu846ReusV_HYkFaGVV8_mEIDFX2_jkllLAYg4jVF664bhZiAxqHluaITWid5SYl8/s1600/DSC_0820-002.jpg" alt="Koththamalli rasam" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Koththamalli Rasam</div>
+      <div class="drink-bilingual">கொத்தமல்லி ரசம் · Coriander Rasam</div>
+      <div class="drink-tagline">The Fever Breaker · Liver Detox</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Coriander Seeds</span><span class="ing-tag">Coriander Leaf</span><span class="ing-tag">Tamarind</span><span class="ing-tag">Tomato</span><span class="ing-tag">Cumin</span><span class="ing-tag">Pepper</span></div>
+      <div class="genZ-vibe">This is what "reset your body" actually looks like 🍃. Thin, warm, deeply healing — not your heavy soup vibe. Fun fact: coriander has actual anti-anxiety compounds (linalool hits GABA receptors). Your nervous system said blessed 🙏</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Linalool activates GABA — proven natural anti-anxiety</li>
+        <li>Breaks fever — the first food given to the ill for centuries</li>
+        <li>Dodecenal kills E.coli &amp; Salmonella on contact</li>
+        <li>Quercetin — antiviral against influenza and other strains</li>
+        <li>Tamarind's tartaric acid detoxifies the liver</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Vit K</strong></span><span class="nut-chip"><strong>Vit C</strong></span><span class="nut-chip"><strong>Vit A</strong></span><span class="nut-chip"><strong>Iron</strong></span><span class="nut-chip"><strong>Manganese</strong></span><span class="nut-chip"><strong>Quercetin</strong></span><span class="nut-chip"><strong>Linalool</strong></span><span class="nut-chip"><strong>Dodecenal</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Rasam — from the Sanskrit "Rasa" meaning essence — is documented in Sangam-era poetry (Purananuru, 1st century CE) as the first food given to those recovering from fever. Every family has its own treasured recipe passed through generations. The Chola dynasty's royal kitchens at Gangaikonda Cholapuram (11th century CE) maintained dedicated coriander gardens. Rasam is the one dish served at every temple community meal across South India, without fail, for over a thousand years.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════ COOL SECTION ════ -->
+<div class="section-banner cool">
+  <span class="sec-icon">🧊</span>
+  <div class="sec-text"><h2>COOLING &amp; REFRESHING DRINKS</h2><p>குளிர்ந்த மூலிகை மருந்துகள்</p></div>
+</div>
+
+<!-- ── TULASI THANNEER ── -->
+<div class="menu-card cool-card">
+  <div class="type-ribbon">🧊 COOL DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://www.1mg.com/articles/wp-content/uploads/2024/06/38049.jpg" alt="Tulasi holy basil" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556909211-36987daf7b4d?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Tulasi Thanneer</div>
+      <div class="drink-bilingual">துளசி தண்ணீர் · Holy Basil Water</div>
+      <div class="drink-tagline">Queen of Herbs · Sacred Immunity Booster</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Holy Basil Leaves</span><span class="ing-tag">Rock Salt</span><span class="ing-tag">Black Pepper</span><span class="ing-tag">Water</span></div>
+      <div class="genZ-vibe">Main character energy from a tiny leaf 🌿. Tulasi is basically nature's antiviral software — pre-installed in your immune system for free. Drink every morning and lowkey glow up from the inside. Your nervous system will literally thank you.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Powerful adaptogen — clinically lowers cortisol &amp; stress</li>
+        <li>Antiviral protection — proven against respiratory viruses</li>
+        <li>Reduces fever and clears lung congestion naturally</li>
+        <li>Purifies blood and supports liver detox</li>
+        <li>Daily ritual shown to boost lifelong immunity</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Eugenol</strong></span><span class="nut-chip"><strong>Ursolic Acid</strong></span><span class="nut-chip"><strong>Rosmarinic Acid</strong></span><span class="nut-chip"><strong>Vit A</strong></span><span class="nut-chip"><strong>Vit C</strong></span><span class="nut-chip"><strong>Vit K</strong></span><span class="nut-chip"><strong>Iron</strong></span><span class="nut-chip"><strong>Calcium</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Every devout household maintains a sacred Tulasi courtyard — the plant is a symbol of blessing and protection. The poet-saints of the 6th–9th century composed devotional hymns to this herb alone. During the devastating 1918 influenza epidemic, physicians distributed tulasi decoction across entire villages — documented in official Collector's records as having reduced mortality. The World Health Organization now lists Ocimum tenuiflorum as a priority medicinal plant.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── PATHIMUGAM THANNEER ── -->
+<div class="menu-card cool-card">
+  <div class="type-ribbon">🧊 COOL DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://img-mm.manoramaonline.com/content/dam/mm/mo/archive/pachakam/features/images/2026/1/10/pathimukam.jpg/photos/4x3/photo.jpg" alt="Pathimugam sappanwood water" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Pathimugam Thanneer</div>
+      <div class="drink-bilingual">பாதிமுகம் தண்ணீர் · Sappanwood Water</div>
+      <div class="drink-tagline">The Sacred Red Water · Ancient Blood Purifier</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Pathimugam Wood</span><span class="ing-tag">Water</span><span class="ing-tag">Rock Salt</span><span class="ing-tag">Lemon (opt.)</span></div>
+      <div class="genZ-vibe">That gorgeous deep-red drink you've seen everywhere in Kerala? That's Pathimugam and it's literally lowkey the most aesthetic AND effective thing you'll drink this summer 🌺. Brazilin makes it red, makes your blood happy. Yes queen.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Powerful blood purifier — removes toxins at cellular level</li>
+        <li>Brazilin is antibacterial &amp; anti-inflammatory</li>
+        <li>Cools excess body heat — deeply sheetala in nature</li>
+        <li>Reduces skin disorders — eczema, acne &amp; rashes</li>
+        <li>Supports liver health &amp; balances blood sugar</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Brazilin</strong></span><span class="nut-chip"><strong>Brazilein</strong></span><span class="nut-chip"><strong>Haematoxylin</strong></span><span class="nut-chip"><strong>Tannins</strong></span><span class="nut-chip"><strong>Phenols</strong></span><span class="nut-chip"><strong>Vit C</strong></span><span class="nut-chip"><strong>Flavonoids</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Pathimugam (Caesalpinia sappan / Sappanwood) has been used in Kerala and Tamil Nadu households for centuries as a daily cooling drink, poured from clay pots each morning. Referenced in ancient Ayurvedic texts as <em>Patanga</em>, it was traded along the ancient spice routes — Arab and Chinese merchants prized it as both a dye and a medicine. The brilliant crimson water it produces when soaked overnight has made it a temple offering and a household staple across the Malabar coast for over a thousand years.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD 9 ── -->
+<div class="menu-card cool-card">
+  <div class="type-ribbon">🧊 COOL DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://t4.ftcdn.net/jpg/20/00/35/37/360_F_2000353784_dcpTIf2z454mR1a47GW8Ki6ijXcufC9r.jpg" alt="Vethalai betel leaf water" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1576402187878-974f70c890a5?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Vethalai Thanneer</div>
+      <div class="drink-bilingual">வெற்றிலை தண்ணீர் · Betel Leaf Water</div>
+      <div class="drink-tagline">The Royal After-Meal · Sacred Cleanser</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Betel Leaf Extract</span><span class="ing-tag">Dry Ginger</span><span class="ing-tag">Cardamom</span><span class="ing-tag">Lime Paste</span><span class="ing-tag">Water</span></div>
+      <div class="genZ-vibe">Oral hygiene but make it ancient 🌿. Before Listerine existed, betel leaf was out here killing mouth bacteria like a boss. Also fun fact: this leaf has more calcium than milk. The plant kingdom said hold my water 💅</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Hydroxychavicol kills Staph aureus &amp; E.coli on contact</li>
+        <li>Stimulates saliva — body's first line of immune defence</li>
+        <li>Eugenol is a natural dental anaesthetic (same as clove)</li>
+        <li>Calcium content rivals that of dairy products</li>
+        <li>Post-meal digestive stimulant &amp; breath freshener</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Chavibetol</strong></span><span class="nut-chip"><strong>Eugenol</strong></span><span class="nut-chip"><strong>Hydroxychavicol</strong></span><span class="nut-chip"><strong>Vit C</strong></span><span class="nut-chip"><strong>Vit A</strong></span><span class="nut-chip"><strong>Calcium</strong></span><span class="nut-chip"><strong>Tannins</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Betel leaf is mentioned in the Ramayana and in Sangam-era poetry as a post-meal offering of hospitality and blessing. In this land's culture, vethalai is the symbol of welcome — offered at every wedding, housewarming, and religious ceremony without exception. The Nayak kings of Madurai (16th–18th century) maintained royal betel gardens and served betel leaf water as the official post-feast royal digestive. CSIR has confirmed anti-carcinogenic properties in its phenolic compounds.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD 7 ── -->
+<div class="menu-card cool-card">
+  <div class="type-ribbon">🧊 COOL DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://static.toiimg.com/thumb/82097924.cms?width=1200&height=900" alt="Panakam jaggery drink" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Panakam</div>
+      <div class="drink-bilingual">பானகம் · Sacred Jaggery Drink</div>
+      <div class="drink-tagline">Temple Prasadam · Ancient Energy Drink</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Block Jaggery</span><span class="ing-tag">Dry Ginger</span><span class="ing-tag">Cardamom</span><span class="ing-tag">Black Pepper</span><span class="ing-tag">Water</span></div>
+      <div class="genZ-vibe">Forget Gatorade — this is the OG electrolyte drink, been in temples for centuries 🏛️. Jaggery has 60× more iron than white sugar. Zero artificial anything. Prasadam but make it hydration era. The ancients were built different.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Instant natural energy — no crash like refined sugar</li>
+        <li>Restores electrolyte balance after heat or exertion</li>
+        <li>60× more iron than white sugar — fights anaemia</li>
+        <li>Jaggery molasses is a natural prebiotic for gut flora</li>
+        <li>Ginger + pepper amplify all nutrient absorption</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Iron</strong></span><span class="nut-chip"><strong>Potassium</strong></span><span class="nut-chip"><strong>Magnesium</strong></span><span class="nut-chip"><strong>Calcium</strong></span><span class="nut-chip"><strong>B-Vitamins</strong></span><span class="nut-chip"><strong>Natural Molasses</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Panakam is mentioned in Kamban's Ramayanam (12th century CE) as an offering at Rama's coronation feast. The Srirangam Ranganathaswamy temple and Tirupati Balaji distribute this drink as prasadam to millions annually — one of the world's most consumed ritual beverages. Archaeological evidence from ancient Uraiyur (near Trichy), dated to 300 BCE, includes terracotta vessels designed specifically for jaggery water storage. Its mineral composition is virtually identical to modern Oral Rehydration Solution.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── VENDHAYAM THANNEER ── -->
+<div class="menu-card cool-card">
+  <div class="type-ribbon">🧊 COOL DRINK</div>
+  <div class="price-mobile"><span class="price-label">PRICE</span><span class="price-amount"><span class="price-rs">₹</span>200</span><span class="price-note">for 500ml</span></div>
+  <div class="card-top">
+    <div class="card-img"><img src="https://www.viralspices.com/wp-content/uploads/2025/06/Benefits-of-Soaked-Fenugreek-Seeds.jpg" alt="Fenugreek seed water" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=400&q=80'"/></div>
+    <div class="card-name-col">
+      <div class="drink-name">Vendhayam Thanneer</div>
+      <div class="drink-bilingual">வெந்தயம் தண்ணீர் · Fenugreek Water</div>
+      <div class="drink-tagline">The Diabetes Fighter · Ancient Hormone Balancer</div>
+    </div>
+    <div class="card-price-col">
+      <div class="price-label">PRICE</div>
+      <div class="price-amount"><span class="price-rs">₹</span>200</div>
+      <div class="price-note">for 500ml</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="info-col col-genZ">
+      <div class="col-header"><span class="lbl-icon">🧪</span>Ingredients</div>
+      <div class="ing-tags"><span class="ing-tag">Fenugreek Seeds</span><span class="ing-tag">Overnight-Soaked Water</span><span class="ing-tag">Lemon (opt.)</span><span class="ing-tag">Honey (opt.)</span></div>
+      <div class="genZ-vibe">Literally soaking seeds overnight and drinking that water = ancient biohacking. Vendhayam controls your blood sugar, suppresses cravings AND helps your hair grow??? Triple threat era 💪. PCOS girlies this one's for you, no cap.</div>
+    </div>
+    <div class="info-col col-mill">
+      <div class="col-header"><span class="lbl-icon">💚</span>Benefits &amp; Nutrients</div>
+      <ul class="benefit-list">
+        <li>Lowers blood glucose — clinically studied (National Library of Congress)</li>
+        <li>Suppresses appetite &amp; boosts metabolism naturally</li>
+        <li>Balances hormones — proven relief for PCOS &amp; menopause</li>
+        <li>Increases milk production in breastfeeding mothers</li>
+        <li>Anti-inflammatory — reduces arthritis &amp; joint swelling</li>
+      </ul>
+      <div class="nut-row"><span class="nut-chip"><strong>Diosgenin</strong></span><span class="nut-chip"><strong>Trigonelline</strong></span><span class="nut-chip"><strong>Iron</strong></span><span class="nut-chip"><strong>Calcium</strong></span><span class="nut-chip"><strong>Potassium</strong></span><span class="nut-chip"><strong>Vit A</strong></span><span class="nut-chip"><strong>Fibre</strong></span><span class="nut-chip"><strong>Protein</strong></span></div>
+    </div>
+    <div class="info-col col-boom">
+      <div class="col-header"><span class="lbl-icon">📜</span>Sacred History</div>
+      <p class="history-text">Fenugreek (Trigonella foenum-graecum) has been cultivated in India and the Mediterranean for over 4,000 years. In ancient Egyptian papyri it was recorded as a remedy for fever and childbirth. In India, it holds an unbroken place in traditional medicine — listed in the Charaka Samhita as a treatment for weakness, indigestion, and hormonal imbalance. Every Tamil household soaks vendhayam overnight as a morning health ritual. A 2024 study published by the National Library of Congress confirmed drinking fenugreek water on an empty stomach significantly reduces Type 2 diabetes symptoms and acidity.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ════ ADD-ONS ════ -->
+<div class="addons-box">
+  <h3>✦ CUSTOMISE YOUR CUP ✦</h3>
+  <p class="add-sub">Tick what you'd like added to your drink — each add-on ₹ 20</p>
+  <div class="addons-grid">
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Extra Palm Jaggery</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Wild Forest Honey</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Extra Ginger Shot</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Fresh Lemon Squeeze</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Cow Ghee Shot (Pasu Nei)</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Ashwagandha Powder</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Amla (Gooseberry) Shot</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Extra Black Pepper</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Moringa Powder Boost</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+    <div class="addon-item" onclick="this.classList.toggle('ticked')">
+      <div class="addon-box"><span class="tick-mark">✓</span></div>
+      <span class="addon-label">Chia Seeds</span>
+      <span class="addon-price">₹ 20</span>
+    </div>
+  </div>
+</div>
+
+<div class="allergen">
+  ⚠ Paal-based drinks contain dairy (cow's milk). Please inform our staff of any allergies or dietary requirements.<br/>
+  All ingredients are fresh, natural and free from artificial colours, flavours and preservatives.
+</div>
+
+<!-- FOOTER -->
+<div class="menu-footer">
+  <div class="orn"><span>✦</span></div>
+  <div class="footer-brand">PURE HERBAL LIQUIDS · தூய மூலிகை பானங்கள்</div>
+  <div class="footer-sub">Experience Herbal Wellness — Plant · Body · Soul</div>
+  <div style="margin-top:16px;display:flex;justify-content:center;">
+    <svg width="110" height="52" viewBox="0 0 110 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="55" cy="12" rx="7" ry="9" fill="#c9a030" opacity=".65"/>
+      <line x1="55" y1="3" x2="55" y2="0" stroke="#c9a020" stroke-width="1.5"/>
+      <ellipse cx="55" cy="0" rx="5" ry="2.5" fill="#d4a840" opacity=".65"/>
+      <polygon points="39,20 71,20 76,30 34,30" fill="#b09028" opacity=".65"/>
+      <polygon points="32,30 78,30 84,42 26,42" fill="#a08020" opacity=".6"/>
+      <rect x="24" y="42" width="62" height="8" fill="#8a6818" opacity=".55"/>
+      <path d="M39,50 L39,45 Q55,40 71,45 L71,50 Z" fill="#6a4008" opacity=".65"/>
+      <ellipse cx="55" cy="50" rx="4" ry="1.5" fill="#c9873a" opacity=".55"/>
+      <path d="M53,50 Q55,46 57,50" fill="#d4a017" opacity=".65"/>
+      <ellipse cx="55" cy="46" rx="1.8" ry="2.4" fill="#ff8c00" opacity=".65"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ════ WHATSAPP ORDER BUTTON ════ -->
+<div class="wa-btn-wrap">
+  <a class="wa-order-btn" href="https://wa.me/918754294371?text=Hi%2C%20I%20would%20like%20to%20place%20an%20order%20at%20G-Man's%20Pure%20Herbal%20Drinks%20🌿" target="_blank" rel="noopener">
+    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Order Now on WhatsApp</span>
+  </a>
+</div>
+
+
+
+</div>
+</body>
+</html>
